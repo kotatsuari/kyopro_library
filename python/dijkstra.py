@@ -29,3 +29,5 @@ def dijkstra(s, dis, G):
             if(dis[to] <= dis[v]+time): continue
             dis[to] = dis[v] + time
             heapq.heappush(pq, (dis[to], to))
+
+# [ex. ABC 035 D]
