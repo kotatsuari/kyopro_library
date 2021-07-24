@@ -1,5 +1,4 @@
 # 素因数分解
-
 def prime_factorize(n):
     ret = []
     for a in range(2, int(n**0.5)+1, 1):
@@ -21,3 +20,5 @@ def enum_divisors(n):
             if(n//i != i): ret.append(n//i)
     ret.sort()
     return ret
+
+# [ex. ABC 067 C]
