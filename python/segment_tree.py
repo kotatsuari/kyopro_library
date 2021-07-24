@@ -24,3 +24,13 @@ class SegTree:
             if(not r & 1): res = self.func(res, self.dat[r-1]); r-=1
             l //= 2; r //= 2
         return res
+
+# [sample_func] 最小値を求める
+# def func(x, y):
+#     return min(x, y)
+
+# 配列の番号が i であるブロックの左下のブロックの番号は 2i+1
+# 　　　　　　　〃 　　　　　　　右下のブロックの番号は 2i+2
+# 　　　　　　　〃　 　　　　　　上のブロックの番号は (i-1)//2
+# 
+# ide_ele は単位元　その値によって結果が変わらないもの（ min なら INF）
