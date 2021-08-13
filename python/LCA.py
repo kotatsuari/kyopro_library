@@ -52,3 +52,5 @@ class LCA:
     def is_on_path(self, u, v, a):  # ある頂点が任意の2点間の経路上に存在するかどうか
         return (self.get_dist(u, a) + self.get_dist(v, a)
                 == self.get_dist(u, v))
+
+# [ex. ABC 016 D]
