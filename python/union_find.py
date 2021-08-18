@@ -28,7 +28,7 @@ class UnionFind:
         return self.size[self.root(x)]
 
 
-# なんでか知らんけどちょっと早いver.
+# なんか知らんけどちょっと早いver.
 class UnionFind:
     def __init__(self,n):
         self.par = [-1]*n
