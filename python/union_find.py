@@ -12,7 +12,7 @@ class UnionFind:
         if(self.parent[x] == x): return x
         else: self.parent[x] = self.root(self.parent[x]); return self.parent[x]
 
-    def merge(self, x, y): # ノード x,y が同じ木に属するか判定 / O(logn)
+    def merge(self, x, y): # ノード x,y を結合する
         x = self.root(x)
         y = self.root(y)
         if(x == y): return False
