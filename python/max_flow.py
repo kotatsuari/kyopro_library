@@ -31,7 +31,6 @@ def max_flow(s, t):
     while(1):
         used = [False]*n
         f = flow_dfs(s, t, INF, used)
-        print('f', f)
         if(f == 0): return flow
         flow += f
 
