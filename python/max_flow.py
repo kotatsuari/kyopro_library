@@ -36,3 +36,37 @@ def max_flow(s, t):
 
 
 print(max_flow(0, n-1))
+
+
+# クラスにしたバージョン
+class Ford_Fullkerson:
+    def __init__(self, n, G):   # 初期化
+        self.n = n
+        self.G = G
+        self.INF = pow(10,9)+7
+        self.used = [False]*self.n
+    
+    def flow_dfs(self, v, t, mincap):   # dfsでフローを最大化
+        if(v == t): return mincap
+        self.used[v] = True
+        for edge in self.G[v]:
+            to,cap,rev = edge[0],edge[1],edge[2]
+            if(not self.used[to] and cap > 0):
+                d = self.flow_dfs(to, t, min(mincap, cap))
+                if(d > 0):
+                    edge[1] -= d
+                    self.G[to][rev][1] += d
+                    return d
+        return 0
+
+    def max_flow(self, s, t):   # flow_dfsを呼び出すよ
+        flow = 0
+        while(1):
+            self.used = [False]*self.n
+            f = self.flow_dfs(s, t, self.INF)
+            if(f == 0): return flow
+            flow += f
+
+    def add_edge(self, From, to, cap):
+        self.G[From].append([to, cap, len(G[to])])
+        self.G[to].append([From, 0, len(G[From])-1])
