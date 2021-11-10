@@ -1,4 +1,4 @@
-# ------------
+# -サンプル問題入力
 n,g,e = map(int, input().split())
 p = map(int, input().split())
 G = [[] for i in range(n)]
@@ -46,7 +46,7 @@ class Ford_Fullkerson:
         self.INF = pow(10,9)+7
         self.used = [False]*self.n
     
-    def flow_dfs(self, v, t, mincap):   # dfsでフローを最大化
+    def flow_dfs(self, v, t, mincap):   # 目的の頂点 t にたどり着くまでの最小容量を求め、通って来た辺に流して帰る
         if(v == t): return mincap
         self.used[v] = True
         for edge in self.G[v]:
@@ -59,7 +59,7 @@ class Ford_Fullkerson:
                     return d
         return 0
 
-    def max_flow(self, s, t):   # flow_dfsを呼び出すよ
+    def max_flow(self, s, t):   # 頂点 s から t の最大流を求める
         flow = 0
         while(1):
             self.used = [False]*self.n
@@ -67,6 +67,8 @@ class Ford_Fullkerson:
             if(f == 0): return flow
             flow += f
 
-    def add_edge(self, From, to, cap):
+    def add_edge(self, From, to, cap):  # 辺を追加
         self.G[From].append([to, cap, len(G[to])])
         self.G[to].append([From, 0, len(G[From])-1])
+
+# [ex. ABC 091 C]
