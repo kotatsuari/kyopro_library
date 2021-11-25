@@ -1,5 +1,5 @@
 def isOK(mid, key):
-    ret = (mid < key)
+    ret = (a[mid] > key)
     return ret
 
 def binary_search(key):
