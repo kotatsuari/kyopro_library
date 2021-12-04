@@ -16,7 +16,7 @@ def dijkstra(s, dis, G):
             dis[to] = dis[v] + time
             d.append((to, dis[to]))
 
-# O(ElogV) priority queueのダイクストラ (vとcostの位置が逆なので注意)
+# O(ElogV) priority queueのダイクストラ (vとcostの位置が逆なので注意、入力はいつも通り(to, cost)でOK)
 import heapq
 def dijkstra(s, dis, G):
     pq = []
