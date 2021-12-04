@@ -39,7 +39,7 @@ class BIT_RAQ():    # 区間加算BIT ver
         
     def add(self, l, r, x):     # 半開区間 [l, r)に加算
         self.add_sub(0, l, -x * (l - 1))
-        self.add_sub(0, r, x * (r- 1))
+        self.add_sub(0, r, x * (r - 1))
         self.add_sub(1, l, x)
         self.add_sub(1, r, -x)
 
