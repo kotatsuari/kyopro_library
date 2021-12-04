@@ -1,4 +1,6 @@
 # Binary Indexed Tree
+# リストに要素を加算が O(logN) でできる
+# リストの区間和を O(logN) で取得できる
 
 class BIT():    # 一点加算BIT ver
     def __init__(self, n):      # nは要素数
@@ -37,7 +39,7 @@ class BIT_RAQ():    # 区間加算BIT ver
 
             idx += (idx & -idx) # 次のindexへ
         
-    def add(self, l, r, x):     # 半開区間 [l, r)に加算
+    def add(self, l, r, x):     # 半開区間 [l, r)に加算、iに値を入れたい時は [i, i+1)
         self.add_sub(0, l, -x * (l - 1))
         self.add_sub(0, r, x * (r - 1))
         self.add_sub(1, l, x)
@@ -53,7 +55,7 @@ class BIT_RAQ():    # 区間加算BIT ver
     def sum(self, i):           # 1~i までの要素の和を出力
         return self.sum_sub(0, i) + self.sum_sub(1, i) * i
 
-    def query(self, l, r):      # 半開区間 [l, r) の和を出力
+    def query(self, l, r):      # 半開区間 [l, r) の和を出力、iの要素が欲しいときは [i, i+1)
         return (self.sum(r-1) - self.sum(l-1))
 
 
