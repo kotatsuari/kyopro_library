@@ -1,6 +1,8 @@
 # Binary Indexed Tree
 # リストに要素を加算が O(logN) でできる
 # リストの区間和を O(logN) で取得できる
+# インデックスは 1から始まるのに注意
+# add や query のインデックスも 1始まり
 
 class BIT():    # 一点加算BIT ver
     def __init__(self, n):      # nは要素数
