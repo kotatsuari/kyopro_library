@@ -22,3 +22,15 @@ def enum_divisors(n):
     return ret
 
 # [ex. ABC 067 C]
+
+
+# エラトステネスの篩
+def eratosthenes(n):
+    isprime = [True]*(n+1)
+    isprime[1] = False
+    for p in range(2, n+1):
+        if(not isprime[p]): continue
+        for q in range(p*2, n+1, p):
+            isprime[q] = False
+    
+    return isprime
