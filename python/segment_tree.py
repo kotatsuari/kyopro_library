@@ -1,7 +1,4 @@
 # 普通のセグ木（一点更新）
-from _typeshed import IdentityFunction
-
-
 class SegTree:  # func で抽象化
     def __init__(self, a_list, func, ide_ele):
         n = len(a_list)
